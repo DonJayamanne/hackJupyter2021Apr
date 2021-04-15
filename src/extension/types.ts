@@ -1,3 +1,5 @@
+import { Kernel } from '@jupyterlab/services';
+
 export type IDisposable = {
     dispose: () => void;
 };
@@ -25,3 +27,19 @@ export type DeepReadonly<T> = T extends (infer R)[]
 export type ReadWrite<T> = {
     -readonly [P in keyof T]: T[P];
 };
+
+
+export type Variable = {
+    varName: string;
+    varType: 'int';
+    varSize: string;
+    varShape: string;
+    varContent: string;
+    isMatrix: boolean;
+    isWidget: boolean;
+};
+export type IKernel = Pick<
+    Kernel.IKernel,
+    'isReady' | 'ready' | 'requestExecute' | 'iopubMessage' | 'status' | 'statusChanged'
+>;
+

@@ -3,9 +3,19 @@
     "compilerOptions": {
         "rootDir": ".",
         "outDir": "../../out/extension",
+        "target": "es6",
         "lib": [
+            "es6",
+            "DOM",
+            "es2018",
             "ES2019",
-            "dom"
+            "ES2020",
         ]
-    }
+    },
+    "exclude": [
+        "node_modules",
+        ".vscode-test",
+        ".vscode test",
+        "build"
+    ]
 }

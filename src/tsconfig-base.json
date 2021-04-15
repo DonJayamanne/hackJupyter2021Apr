@@ -13,6 +13,12 @@
         "noUnusedLocals": true,
         "noUnusedParameters": false,
         "strict": true,
-        "noImplicitAny": false
-    }
+        "noImplicitAny": true
+    },
+    "exclude": [
+        "node_modules",
+        ".vscode-test",
+        ".vscode test",
+        "build"
+    ]
 }

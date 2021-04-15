@@ -1,0 +1,453 @@
+{
+  "errors": [
+  ],
+  "warnings": [
+  ],
+  "version": "4.44.2",
+  "hash": "4535dbd70a08eda6b48c",
+  "time": 960,
+  "builtAt": 1616534496813,
+  "publicPath": "",
+  "outputPath": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/out/datascience-ui/ipywidgetsRenderer",
+  "assetsByChunkName": {
+    "ipywidgetsRenderer": [
+      "ipywidgetsRenderer.js",
+      "ipywidgetsRenderer.js.map"
+    ]
+  },
+  "assets": [
+    {
+      "name": "ipywidgetsRenderer.js",
+      "size": 2044,
+      "chunks": [
+        "ipywidgetsRenderer"
+      ],
+      "chunkNames": [
+        "ipywidgetsRenderer"
+      ],
+      "info": {
+        "minimized": true
+      },
+      "emitted": true
+    },
+    {
+      "name": "ipywidgetsRenderer.js.map",
+      "size": 8152,
+      "chunks": [
+        "ipywidgetsRenderer"
+      ],
+      "chunkNames": [
+        "ipywidgetsRenderer"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": true
+    },
+    {
+      "name": "require.js",
+      "size": 17655,
+      "chunks": [
+      ],
+      "chunkNames": [
+      ],
+      "info": {
+        "copied": true,
+        "minimized": true
+      },
+      "emitted": true
+    },
+    {
+      "name": "require.js.LICENSE.txt",
+      "size": 202,
+      "chunks": [
+      ],
+      "chunkNames": [
+      ],
+      "info": {
+      },
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "ipywidgetsRenderer": {
+      "chunks": [
+        "ipywidgetsRenderer"
+      ],
+      "assets": [
+        "ipywidgetsRenderer.js",
+        "ipywidgetsRenderer.js.map"
+      ],
+      "children": {
+      },
+      "childAssets": {
+      }
+    }
+  },
+  "namedChunkGroups": {
+    "ipywidgetsRenderer": {
+      "chunks": [
+        "ipywidgetsRenderer"
+      ],
+      "assets": [
+        "ipywidgetsRenderer.js",
+        "ipywidgetsRenderer.js.map"
+      ],
+      "children": {
+      },
+      "childAssets": {
+      }
+    }
+  },
+  "chunks": [
+    {
+      "id": "ipywidgetsRenderer",
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "size": 1705,
+      "names": [
+        "ipywidgetsRenderer"
+      ],
+      "files": [
+        "ipywidgetsRenderer.js",
+        "ipywidgetsRenderer.js.map"
+      ],
+      "hash": "9988feaa153c7313436d",
+      "siblings": [
+      ],
+      "parents": [
+      ],
+      "children": [
+      ],
+      "childrenByOrder": {
+      },
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "name": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "index": 0,
+          "index2": 2,
+          "size": 28,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            "ipywidgetsRenderer"
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "multi entry"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 0
+        },
+        {
+          "id": "5i39",
+          "identifier": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/cache-loader/dist/cjs.js!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/thread-loader/dist/cjs.js??ref--4-1!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/ts-loader/index.js??ref--4-2!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/src/datascience-ui/ipywidgets/renderer/index.ts",
+          "name": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "index": 1,
+          "index2": 1,
+          "size": 1205,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            "ipywidgetsRenderer"
+          ],
+          "issuer": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "issuerId": 0,
+          "issuerName": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "issuerPath": [
+            {
+              "id": 0,
+              "identifier": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+              "name": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 0,
+              "moduleIdentifier": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+              "module": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+              "moduleName": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+              "type": "single entry",
+              "userRequest": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+              "loc": "ipywidgetsRenderer[0]"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [
+          ],
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module uses injected variables (global)"
+          ],
+          "depth": 1,
+          "source": "// Copyright (c) Microsoft Corporation. All rights reserved.\n// Licensed under the MIT License.\nvar JupyterIPyWidgetNotebookRenderer = 'jupyter-ipywidget-renderer';\n/* eslint-disable @typescript-eslint/no-explicit-any, no-console */\nfunction renderOutput(e) {\n    var _a, _b;\n    var renderOutputFunc = ((_a = window.ipywidgetsKernel) === null || _a === void 0 ? void 0 : _a.renderOutput) || ((_b = global.ipywidgetsKernel) === null || _b === void 0 ? void 0 : _b.renderOutput);\n    if (renderOutputFunc) {\n        return renderOutputFunc(e);\n    }\n    console.error('Rendering widgets on notebook open is not supported.');\n}\nfunction disposeOutput(e) {\n    var _a, _b;\n    var disposeOutputFunc = ((_a = window.ipywidgetsKernel) === null || _a === void 0 ? void 0 : _a.disposeOutput) || ((_b = global.ipywidgetsKernel) === null || _b === void 0 ? void 0 : _b.disposeOutput);\n    if (disposeOutputFunc) {\n        return disposeOutputFunc(e);\n    }\n}\n/* eslint-disable @typescript-eslint/no-explicit-any */\nfunction initialize(api) {\n    api.onDidCreateOutput(renderOutput);\n    api.onWillDestroyOutput(disposeOutput);\n}\ninitialize(acquireNotebookRendererApi(JupyterIPyWidgetNotebookRenderer));\nexport {};\n"
+        },
+        {
+          "id": "yLpj",
+          "identifier": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/webpack/buildin/global.js",
+          "name": "(webpack)/buildin/global.js",
+          "index": 2,
+          "index2": 0,
+          "size": 472,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            "ipywidgetsRenderer"
+          ],
+          "issuer": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/cache-loader/dist/cjs.js!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/thread-loader/dist/cjs.js??ref--4-1!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/ts-loader/index.js??ref--4-2!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/src/datascience-ui/ipywidgets/renderer/index.ts",
+          "issuerId": "5i39",
+          "issuerName": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "issuerPath": [
+            {
+              "id": 0,
+              "identifier": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+              "name": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts"
+            },
+            {
+              "id": "5i39",
+              "identifier": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/cache-loader/dist/cjs.js!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/thread-loader/dist/cjs.js??ref--4-1!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/ts-loader/index.js??ref--4-2!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/src/datascience-ui/ipywidgets/renderer/index.ts",
+              "name": "./src/datascience-ui/ipywidgets/renderer/index.ts"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": "5i39",
+              "moduleIdentifier": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/cache-loader/dist/cjs.js!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/thread-loader/dist/cjs.js??ref--4-1!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/ts-loader/index.js??ref--4-2!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/src/datascience-ui/ipywidgets/renderer/index.ts",
+              "module": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+              "moduleName": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+              "type": "cjs require",
+              "userRequest": "global",
+              "loc": "1:0-63"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 2,
+          "source": "var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn this;\n})();\n\ntry {\n\t// This works if eval is allowed (see CSP)\n\tg = g || new Function(\"return this\")();\n} catch (e) {\n\t// This works if the window reference is available\n\tif (typeof window === \"object\") g = window;\n}\n\n// g can still be undefined, but nothing to do about it...\n// We return undefined, instead of nothing here, so it's\n// easier to handle this case. if(!global) { ...}\n\nmodule.exports = g;\n"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "ipywidgetsRenderer",
+          "request": null,
+          "reasons": [
+          ]
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+      "name": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+      "index": 0,
+      "index2": 2,
+      "size": 28,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        "ipywidgetsRenderer"
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": null,
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "type": "multi entry"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 0
+    },
+    {
+      "id": "5i39",
+      "identifier": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/cache-loader/dist/cjs.js!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/thread-loader/dist/cjs.js??ref--4-1!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/ts-loader/index.js??ref--4-2!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/src/datascience-ui/ipywidgets/renderer/index.ts",
+      "name": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+      "index": 1,
+      "index2": 1,
+      "size": 1205,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        "ipywidgetsRenderer"
+      ],
+      "issuer": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+      "issuerId": 0,
+      "issuerName": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+      "issuerPath": [
+        {
+          "id": 0,
+          "identifier": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "name": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "module": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "moduleName": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "type": "single entry",
+          "userRequest": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "loc": "ipywidgetsRenderer[0]"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [
+      ],
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module uses injected variables (global)"
+      ],
+      "depth": 1,
+      "source": "// Copyright (c) Microsoft Corporation. All rights reserved.\n// Licensed under the MIT License.\nvar JupyterIPyWidgetNotebookRenderer = 'jupyter-ipywidget-renderer';\n/* eslint-disable @typescript-eslint/no-explicit-any, no-console */\nfunction renderOutput(e) {\n    var _a, _b;\n    var renderOutputFunc = ((_a = window.ipywidgetsKernel) === null || _a === void 0 ? void 0 : _a.renderOutput) || ((_b = global.ipywidgetsKernel) === null || _b === void 0 ? void 0 : _b.renderOutput);\n    if (renderOutputFunc) {\n        return renderOutputFunc(e);\n    }\n    console.error('Rendering widgets on notebook open is not supported.');\n}\nfunction disposeOutput(e) {\n    var _a, _b;\n    var disposeOutputFunc = ((_a = window.ipywidgetsKernel) === null || _a === void 0 ? void 0 : _a.disposeOutput) || ((_b = global.ipywidgetsKernel) === null || _b === void 0 ? void 0 : _b.disposeOutput);\n    if (disposeOutputFunc) {\n        return disposeOutputFunc(e);\n    }\n}\n/* eslint-disable @typescript-eslint/no-explicit-any */\nfunction initialize(api) {\n    api.onDidCreateOutput(renderOutput);\n    api.onWillDestroyOutput(disposeOutput);\n}\ninitialize(acquireNotebookRendererApi(JupyterIPyWidgetNotebookRenderer));\nexport {};\n"
+    },
+    {
+      "id": "yLpj",
+      "identifier": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/webpack/buildin/global.js",
+      "name": "(webpack)/buildin/global.js",
+      "index": 2,
+      "index2": 0,
+      "size": 472,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        "ipywidgetsRenderer"
+      ],
+      "issuer": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/cache-loader/dist/cjs.js!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/thread-loader/dist/cjs.js??ref--4-1!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/ts-loader/index.js??ref--4-2!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/src/datascience-ui/ipywidgets/renderer/index.ts",
+      "issuerId": "5i39",
+      "issuerName": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+      "issuerPath": [
+        {
+          "id": 0,
+          "identifier": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "name": "multi ./src/datascience-ui/ipywidgets/renderer/index.ts"
+        },
+        {
+          "id": "5i39",
+          "identifier": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/cache-loader/dist/cjs.js!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/thread-loader/dist/cjs.js??ref--4-1!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/ts-loader/index.js??ref--4-2!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/src/datascience-ui/ipywidgets/renderer/index.ts",
+          "name": "./src/datascience-ui/ipywidgets/renderer/index.ts"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": "5i39",
+          "moduleIdentifier": "/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/cache-loader/dist/cjs.js!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/thread-loader/dist/cjs.js??ref--4-1!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/ts-loader/index.js??ref--4-2!/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/src/datascience-ui/ipywidgets/renderer/index.ts",
+          "module": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "moduleName": "./src/datascience-ui/ipywidgets/renderer/index.ts",
+          "type": "cjs require",
+          "userRequest": "global",
+          "loc": "1:0-63"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 2,
+      "source": "var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn this;\n})();\n\ntry {\n\t// This works if eval is allowed (see CSP)\n\tg = g || new Function(\"return this\")();\n} catch (e) {\n\t// This works if the window reference is available\n\tif (typeof window === \"object\") g = window;\n}\n\n// g can still be undefined, but nothing to do about it...\n// We return undefined, instead of nothing here, so it's\n// easier to handle this case. if(!global) { ...}\n\nmodule.exports = g;\n"
+    }
+  ],
+  "filteredModules": 0,
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [
+      ],
+      "filteredEntries": 2,
+      "debug": false
+    },
+    "copy-webpack-plugin": {
+      "entries": [
+        {
+          "type": "log",
+          "message": "begin globbing \"/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/requirejs/require.js\" with a context of \"/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/requirejs\""
+        },
+        {
+          "type": "log",
+          "message": "determined that \"/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/requirejs/require.js\" should write to \"require.js\""
+        },
+        {
+          "type": "log",
+          "message": "writing \"require.js\" to compilation assets from \"/Users/donjayamanne/Desktop/Development/vsc/vscode-jupyter/node_modules/requirejs/require.js\""
+        }
+      ],
+      "filteredEntries": 8,
+      "debug": false
+    }
+  },
+  "children": [
+  ]
+}

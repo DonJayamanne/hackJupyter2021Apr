@@ -1,8 +1,10 @@
-import { IDisposable } from './types';
+import { IDisposable, IKernel } from './types';
 import { CancellationToken, ExtensionContext, TextDocument, Uri } from 'vscode';
 import { createHash } from 'crypto';
+import { KernelMessage } from '@jupyterlab/services';
 
 const disposables: IDisposable[] = [];
+
 export function registerDisposableRegistry(context: ExtensionContext) {
     context.subscriptions.push({
         dispose: () => disposeAllDisposables(disposables)
@@ -134,4 +136,17 @@ export function isKustoFile(document: TextDocument) {
 }
 export function getHash(value: string) {
     return createHash('sha1').update(value).digest('hex');
+}
+
+export async function execute(
+    kernel: IKernel,
+    content: KernelMessage.IExecuteRequestMsg['content'],
+    ioCallback: (msg: KernelMessage.IIOPubMessage) => any
+): Promise<KernelMessage.IExecuteReplyMsg> {
+    const future = kernel.requestExecute(content);
+
+    future.onIOPub = (msg: KernelMessage.IIOPubMessage): void => {
+        ioCallback(msg);
+    };
+    return future.done as Promise<KernelMessage.IExecuteReplyMsg>;
 }
