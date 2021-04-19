@@ -3,22 +3,32 @@ import { IDisposable, IKernel, Variable } from '../types';
 
 // export type NodeType = 'cluster' | 'database' | 'table' | 'column';
 export interface ITreeData {
-    readonly parent?: ITreeData;
     // readonly type: NodeType;
     getTreeItem(): Promise<TreeItem>;
     getChildren?(): Promise<ITreeData[] | undefined>;
 }
 export class VariableNode implements ITreeData {
+    public data?: any;
     constructor(
         public readonly notebook: NotebookDocument,
         public readonly variable: Variable,
         private readonly kernel: IKernel
     ) {
         console.log(!!this.kernel);
+        if (variable.varType === 'dict') {
+            try {
+                this.data = JSON.parse(this.variable.varContent.replace(/\\/g, '').replace(/'/g, '"'));
+            } catch {
+                //
+            }
+        }
     }
 
     public async getTreeItem(): Promise<TreeItem> {
-        const item = new TreeItem(this.variable.varName, TreeItemCollapsibleState.None);
+        const item = new TreeItem(
+            this.variable.varName,
+            this.data ? TreeItemCollapsibleState.Collapsed : TreeItemCollapsibleState.None
+        );
         if (this.variable.isWidget) {
             item.contextValue = `varIPyWidget`;
         } else {
@@ -32,8 +42,70 @@ export class VariableNode implements ITreeData {
         return item;
     }
     public async getChildren(): Promise<ITreeData[]> {
-        return [];
-        // return this.engineSchema.cluster.databases.map((item) => new DatabaseNode(this, item.name));
+        if (!this.data) {
+            return [];
+        }
+        const data = this.data;
+        if (
+            typeof data === 'bigint' ||
+            typeof data === 'boolean' ||
+            typeof data === 'number' ||
+            typeof data === 'string' ||
+            typeof data === 'symbol' ||
+            typeof data === 'undefined'
+        ) {
+            return [];
+        }
+        if (Array.isArray(this.data)) {
+            return this.data.map((item, i) => {
+                return new ObjectNode(`[${i}]`, item);
+            });
+        } else {
+            return Object.keys(this.data).map((name) => {
+                return new ObjectNode(name, this.data[name]);
+            });
+        }
+    }
+}
+export class ObjectNode implements ITreeData {
+    constructor(public readonly name: string, public readonly data?: any) {}
+
+    public async getTreeItem(): Promise<TreeItem> {
+        const item = new TreeItem(
+            this.name,
+            this.data ? TreeItemCollapsibleState.Collapsed : TreeItemCollapsibleState.None
+        );
+        try {
+            item.description = (this.data || '').toString();
+        } catch {
+            //
+        }
+        return item;
+    }
+    public async getChildren(): Promise<ITreeData[]> {
+        if (!this.data) {
+            return [];
+        }
+        const data = this.data;
+        if (
+            typeof data === 'bigint' ||
+            typeof data === 'boolean' ||
+            typeof data === 'number' ||
+            typeof data === 'string' ||
+            typeof data === 'symbol' ||
+            typeof data === 'undefined'
+        ) {
+            return [];
+        }
+        if (Array.isArray(this.data)) {
+            return this.data.map((item, i) => {
+                return new ObjectNode(`[${i}]`, item);
+            });
+        } else {
+            return Object.keys(this.data).map((name) => {
+                return new ObjectNode(name, this.data[name]);
+            });
+        }
     }
 }
 

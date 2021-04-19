@@ -38,6 +38,7 @@
     ],
     "activationEvents": [
         "onCommand:vars.viewDataFrameInQGrid",
+        "onCommand:vars.viewDataFrameInAwesome",
         "onCommand:vars.viewWidget",
         "onView:jupyterVariables",
         "onNotebook:jupyter-notebook",
@@ -59,6 +60,18 @@
             }
         },
         "commands": [
+            {
+                "command": "packages.add",
+                "title": "Install a Package",
+                "category": "Notebook",
+                "icon": "$(package)"
+            },
+            {
+                "command": "package.uninstallPythonPackage",
+                "title": "Uninstall Package",
+                "category": "Notebook",
+                "icon": "$(trash)"
+            },
             {
                 "command": "kusto.createNotebook",
                 "title": "Create Kusto Notebook",
@@ -104,6 +117,11 @@
                 "icon": "$(table)"
             },
             {
+                "command": "vars.viewDataFrameInAwesome",
+                "title": "View in Facet",
+                "icon": "$(table)"
+            },
+            {
                 "command": "vars.viewWidget",
                 "title": "View Widget",
                 "icon": "$(preview)"
@@ -140,6 +158,12 @@
                     "name": "Variables",
                     "icon": "resources/icons/kusto.svg",
                     "contextualTitle": "Jupyter Variables"
+                },
+                {
+                    "id": "pythonPackages",
+                    "name": "Packages",
+                    "icon": "$(package)",
+                    "contextualTitle": "Python Packages"
                 }
             ]
         },
@@ -190,6 +214,11 @@
                     "command": "kusto.refreshNode",
                     "when": "view == kustoExplorer",
                     "group": "navigation"
+                },
+                {
+                    "command": "packages.add",
+                    "when": "view == pythonPackages",
+                    "group": "navigation@1"
                 }
             ],
             "editor/title": [
@@ -218,7 +247,17 @@
             ],
             "view/item/context": [
                 {
+                    "command": "package.uninstallPythonPackage",
+                    "when": "view == pythonPackages",
+                    "group": "inline@2"
+                },
+                {
                     "command": "vars.viewDataFrameInQGrid",
+                    "when": "view == jupyterVariables && viewItem == varDataFrame",
+                    "group": "inline@2"
+                },
+                {
+                    "command": "vars.viewDataFrameInAwesome",
                     "when": "view == jupyterVariables && viewItem == varDataFrame",
                     "group": "inline@2"
                 },

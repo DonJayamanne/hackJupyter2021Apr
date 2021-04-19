@@ -174,6 +174,17 @@ function initialize() {
                         });
                     }
                 }
+                if (type === 'RENDER_HTML'){
+                    console.error('Received message to reender Widget', payload);
+                    var html = payload.data['text/html'];
+                    var ele = document.getElementById('variableWidgetContainer');
+                    if (ele){
+                        console.error('Received message to reender Widget SET');
+                        ele.innerHTML = html;
+                    } else {
+                        console.error('Received message to reender Widget NOT');
+                    }
+                }
                 return true;
             }
         });

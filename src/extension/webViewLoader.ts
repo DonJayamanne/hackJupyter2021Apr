@@ -26,12 +26,21 @@ import { getScript } from './inspectorScripts';
 import { IJupyterExtensionApi } from './jupyter';
 import { execute, registerDisposable } from './utils';
 import { noop } from './constants';
-import { IKernel, Variable } from './types';
+import { IKernel, PythonPackage, Variable } from './types';
 import { VariableTreeView } from './activityBar/clusterView';
+import { PackagesTreeView } from './activityBar/packages';
 
 let extensionUri: Uri;
 let jupyterExtension: Extension<IJupyterExtensionApi>;
+// let packages: string[] = [];
+// fs.readFile(
+//     '/Users/donjayamanne/Desktop/Development/vsc/vscode-hackathonJupyterExecutions/libs/pypi.json',
+//     (_, data) => {
+//         packages = JSON.parse(data.toString()) as string[];
+//     }
+// );
 export function registerKernelListener(context: ExtensionContext) {
+    initializePackageCommands();
     extensionUri = context.extensionUri;
     const ext = extensions.getExtension<IJupyterExtensionApi>('ms-toolsai.jupyter');
     if (!ext) {
@@ -66,18 +75,83 @@ export function registerKernelListener(context: ExtensionContext) {
             dfView.notebookCommunication.onDidReceiveMessage((x) => {
                 console.log(x);
             });
+            await execute(
+                kernel,
+                {
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    code: `
+import sys
+sys.path.append('/Users/donjayamanne/Desktop/Development/vsc/vscode-hackathonJupyterExecutions/libs')
+import qgrid`,
+                    silent: true,
+                    stop_on_error: false,
+                    store_history: false
+                },
+                noop
+            );
             execute(
                 kernel,
                 {
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                    code: `${getScript('python')!.widgetQueryCommand}(${variable.varName})`,
-                    silent: true,
+                    // code: `${getScript('python')!.dataFrameCommand}(${variable.varName})`,
+                    code: `qgrid.show_grid(${variable.varName})`,
+                    silent: false,
                     stop_on_error: false,
                     store_history: false
                 },
                 (msg) => {
                     if (msg.header.msg_type === 'display_data') {
                         console.error(msg);
+                        dfView.notebookCommunication.postMessage({ type: 'RENDER_WIDGET', payload: msg.content });
+                    }
+                }
+            );
+        }
+    );
+    commands.registerCommand(
+        'vars.viewDataFrameInAwesome',
+        async ({ notebook, kernel, variable }: { notebook: NotebookDocument; kernel: IKernel; variable: Variable }) => {
+            console.log(kernel);
+            console.log(variable);
+            const dfView = CatCodingPanel.createOrShow(extensionUri, `${variable.varName} (${variable.varType})`);
+            await jupyterExtension.exports.initializeWebViewKernel(
+                notebook,
+                dfView.notebookCommunication,
+                new CancellationTokenSource().token
+            );
+            dfView.notebookCommunication.postMessage({ type: 'HelloWordFromExt', payload: 1 });
+            dfView.notebookCommunication.onDidReceiveMessage((x) => {
+                console.log(x);
+            });
+            execute(
+                kernel,
+                {
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    code: `
+jsonstr = ${variable.varName}.to_json(orient='records')
+from IPython.core.display import display, HTML
+sprite_size = 32 if len(${variable.varName}.index)>50000 else 64
+# Create Facets template
+HTML_TEMPLATE = """
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.3.3/webcomponents-lite.js"></script>
+        <facets-dive sprite-image-width="{sprite_size}" sprite-image-height="{sprite_size}" id="elem" height="600"></facets-dive>
+        <script>
+            document.querySelector("#elem").data = {jsonstr};
+        </script>"""
+
+# Load the json dataset and the sprite_size into the template
+html = """${facetHTML}""" + HTML_TEMPLATE.format(jsonstr=jsonstr, sprite_size=sprite_size)
+
+# Display the template
+display(HTML(html))`,
+                    silent: false,
+                    stop_on_error: false,
+                    store_history: false
+                },
+                (msg) => {
+                    if (msg.header.msg_type === 'display_data') {
+                        console.error(msg);
+                        dfView.notebookCommunication.postMessage({ type: 'RENDER_HTML', payload: msg.content });
                     }
                 }
             );
@@ -172,6 +246,18 @@ export function registerKernelListener(context: ExtensionContext) {
     );
 }
 
+function initializePackageCommands() {
+    commands.registerCommand('packages.add', async () => {
+        const pkg = await window.showInputBox({ prompt: 'Package Name', title: 'Enter Package to install' });
+        if (!pkg) {
+            return;
+        }
+    });
+    commands.registerCommand('package.uninstallPythonPackage', (node: PythonPackage) => {
+        console.log(node);
+    });
+}
+
 function displayVariables(document: NotebookDocument) {
     const vars = notebookVariables.get(document);
     if (!vars) {
@@ -257,11 +343,42 @@ async function registerWithJupyter(ext: Extension<IJupyterExtensionApi>) {
                     }
                 }
             );
+            if (!hasPip) {
+                hasPip = true;
+                await execute(
+                    kernel,
+                    {
+                        code: '%pip list --format=json',
+                        store_history: false,
+                        stop_on_error: false
+                    },
+                    (data) => {
+                        if (
+                            data.header.msg_type === 'stream' &&
+                            'name' in data.content &&
+                            data.content.name === 'stdout'
+                        ) {
+                            try {
+                                const packages: PythonPackage[] = JSON.parse(data.content.text);
+                                if (Array.isArray(packages) && packages[0].name && packages[0].version) {
+                                    PackagesTreeView.instance.packagesTreeProvider.setPackages(
+                                        e.cell.notebook,
+                                        packages,
+                                        kernel
+                                    );
+                                }
+                            } catch {
+                                //
+                            }
+                        }
+                    }
+                );
+            }
             console.log(result);
         })
     );
 }
-
+let hasPip = false;
 function registerKernel(notebook: NotebookDocument, kernel: IKernel) {
     if (handlers.has(notebook)) {
         return;
@@ -517,3 +634,5 @@ class CatCodingPanel {
 			</html>`;
     }
 }
+
+const facetHTML = fs.readFileSync('/Users/donjayamanne/Desktop/Development/vsc/vscode-hackathonJupyterExecutions/src/extension/facethtml.html').toString();

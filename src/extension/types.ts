@@ -28,18 +28,22 @@ export type ReadWrite<T> = {
     -readonly [P in keyof T]: T[P];
 };
 
-
 export type Variable = {
     varName: string;
-    varType: 'int';
+    varType: string;
     varSize: string;
     varShape: string;
     varContent: string;
     isMatrix: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    obj?: any;
     isWidget: boolean;
+};
+export type PythonPackage = {
+    name: string;
+    version: string;
 };
 export type IKernel = Pick<
     Kernel.IKernel,
     'isReady' | 'ready' | 'requestExecute' | 'iopubMessage' | 'status' | 'statusChanged'
 >;
-
